@@ -7,7 +7,9 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
 RUN dpkg --add-architecture i386 && \
-    apt-get update && apt-get -y install python2 python-is-python2 xvfb x11vnc xdotool wget tar supervisor net-tools fluxbox gnupg2 && \
+    apt-get update && apt-get -y install python2 xvfb x11vnc xdotool wget tar supervisor net-tools fluxbox gnupg2 && \
+    wget http://archive.ubuntu.com/ubuntu/pool/universe/w/what-is-python/python-is-python2_2.7.18-9_all.deb && \
+    dpkg -i python-is-python2_2.7.18-9_all.deb && \
     wget -O - https://dl.winehq.org/wine-builds/winehq.key | apt-key add -  && \
     echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ jammy main' |tee /etc/apt/sources.list.d/winehq.list && \
     apt-get update && apt-get -y install winehq-devel  && \
