@@ -11,7 +11,7 @@ RUN dpkg --add-architecture i386 && \
     wget http://archive.ubuntu.com/ubuntu/pool/universe/w/what-is-python/python-is-python2_2.7.18-9_all.deb && \
     dpkg -i python-is-python2_2.7.18-9_all.deb && \
     wget -O - https://dl.winehq.org/wine-builds/winehq.key | apt-key add -  && \
-    echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ jammy main' |tee /etc/apt/sources.list.d/winehq.list && \
+    echo 'deb https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources' |tee /etc/apt/sources.list.d/winehq.list && \
     apt-get update && apt-get -y install winehq-devel  && \
     mkdir /opt/wine-devel/share/wine/mono && wget -O - https://dl.winehq.org/wine/wine-mono/7.3.0/wine-mono-7.3.0-x86.tar.xz | tar -xJv -C /opt/wine-devel/share/wine/mono && \
     mkdir /opt/wine-devel/share/wine/gecko && wget -O /opt/wine-devel/share/wine/gecko/wine-gecko-2.47.2-x86.msi https://dl.winehq.org/wine/wine-gecko/2.47.2/wine-gecko-2.47.2-x86.msi && wget -O /opt/wine-devel/share/wine/gecko/wine-gecko-2.47.2-x86_64.msi https://dl.winehq.org/wine/wine-gecko/2.47.2/wine-gecko-2.47.2-x86_64.msi && \
